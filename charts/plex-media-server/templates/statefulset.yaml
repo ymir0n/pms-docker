@@ -19,6 +19,10 @@ spec:
       labels:
         {{- include "pms-chart.labels" . | nindent 8 }}
     spec:
+      dnsPolicy: None
+      dnsConfig:
+        nameservers:
+          - 1.1.1.1
       serviceAccountName: {{ include "pms-chart.serviceAccountName" . }}
       tolerations:
         {{- toYaml .Values.tolerations | nindent 8 }}
