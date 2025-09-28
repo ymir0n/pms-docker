@@ -113,6 +113,12 @@ spec:
         ports:
         - containerPort: 32400
           name: pms
+        - containerPort: 32469
+          hostPort: 32469
+          protocol: TCP
+        - containerPort: 1900
+          hostPort: 1900
+          protocol: UDP
         env:
         {{- if or .Values.ingress.enabled .Values.extraEnv.ADVERTISE_IP }}
         - name: ADVERTISE_IP
